@@ -24,7 +24,7 @@ public class TestBase {
         Configuration.browser = System.getProperty("browserName", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "122.0");
         if ("true".equals(System.getProperty("remote"))) {
-            Configuration.remote = "https://" + System.getProperty("login") + "@" + System.getProperty("remote");
+            Configuration.remote = "https://" + System.getProperty("login") + "@" + System.getProperty("remoteUrl");
         }
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
