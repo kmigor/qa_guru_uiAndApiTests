@@ -16,16 +16,16 @@ public class TestBase {
 
     @BeforeAll
     public static void setUp() {
-        RestAssured.baseURI = "https://demoqa.com";
-        Configuration.baseUrl = "https://demoqa.com";
-
+        if ("true".equals(System.getProperty("remote"))) {
+            Configuration.remote = "https://" + System.getProperty("login") + "@" + System.getProperty("remoteUrl");
+        }
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.browser = System.getProperty("browserName", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "122.0");
-        if ("true".equals(System.getProperty("remote"))) {
-            Configuration.remote = "https://" + System.getProperty("login") + "@" + System.getProperty("remoteUrl");
-        }
+
+        RestAssured.baseURI = "https://demoqa.com";
+        Configuration.baseUrl = "https://demoqa.com";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
