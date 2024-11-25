@@ -24,6 +24,8 @@ public class TestBase {
         Configuration.browser = System.getProperty("browserName", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "122.0");
 
+        System.out.println(Configuration.remote);
+
         RestAssured.baseURI = "https://demoqa.com";
         Configuration.baseUrl = "https://demoqa.com";
 
