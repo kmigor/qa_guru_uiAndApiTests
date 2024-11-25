@@ -15,27 +15,20 @@ import java.util.Map;
 public class TestBase {
 
     @BeforeAll
-    public static void setUp() {
+    static void setUp() {
         if ("true".equals(System.getProperty("remote"))) {
-            Configuration.remote = System.getProperty("temp");
-//            Configuration.remote = "https://" + System.getProperty("remoteUser") + "@" + System.getProperty("remoteUrl");
-            Configuration.browser = System.getProperty("browserName");
-            Configuration.browserVersion = System.getProperty("browserVersion");
-            Configuration.browserSize = System.getProperty("browserSize");
-
-        } else {
-            Configuration.browser = "chrome";
-            Configuration.browserSize = "1920x1080";
+            Configuration.remote = "https://" + System.getProperty("remoteUser") + "@" + System.getProperty("remoteUrl");
         }
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.browser = System.getProperty("browserName", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "122.0");
 
-//        if ("true".equals(System.getProperty("remote"))) {
-//            Configuration.remote = "https://" + System.getProperty("remoteUser") + "@" + System.getProperty("remoteUrl");
-//        }
+        System.out.println("Проверка");
+        System.out.println(System.getProperty("remoteUser"));
+        System.out.println(Configuration.remote);
+        System.out.println("Проверка окончена");
+
         Configuration.pageLoadStrategy = "eager";
-//        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-//        Configuration.browser = System.getProperty("browserName", "chrome");
-//        Configuration.browserVersion = System.getProperty("browserVersion", "122.0");
-
         RestAssured.baseURI = "https://demoqa.com";
         Configuration.baseUrl = "https://demoqa.com";
 
