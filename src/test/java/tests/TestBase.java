@@ -17,7 +17,8 @@ public class TestBase {
     @BeforeAll
     public static void setUp() {
         if ("true".equals(System.getProperty("remote"))) {
-            Configuration.remote = "https://" + System.getProperty("remoteUser") + "@" + System.getProperty("remoteUrl");
+//            Configuration.remote = "https://" + System.getProperty("remoteUser") + "@" + System.getProperty("remoteUrl");
+            Configuration.remote = "https://" + System.getProperty("temp");
             Configuration.browser = System.getProperty("browserName");
             Configuration.browserVersion = System.getProperty("browserVersion");
             Configuration.browserSize = System.getProperty("browserSize");
