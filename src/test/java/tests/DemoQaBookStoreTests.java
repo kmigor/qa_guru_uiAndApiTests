@@ -20,10 +20,9 @@ public class DemoQaBookStoreTests extends TestBase {
 
         step("Очистить корзину с книгами", BookStoreApi::deleteAllBooksInCart);
 
-        step("Добавить определенную книгу в корзину", () ->
-                BookStoreApi.addBookToList("9781449331818"));
+        step("Добавить определенную книгу в корзину", () -> BookStoreApi.addBookToList("9781449331818"));
 
-        step("Удалить эту книгу", () -> {
+        step("Удалить книгу", () -> {
             ProfilePage.openPage();
             ProfilePage.deleteCertainBook();
         });
@@ -38,5 +37,4 @@ public class DemoQaBookStoreTests extends TestBase {
             assertThat(response.getBooks()).isEmpty();
         });
     }
-
 }

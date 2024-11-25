@@ -32,16 +32,14 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 dependencies {
-    testImplementation(
-            'org.junit.jupiter:junit-jupiter:5.11.1',
+    testImplementation('org.junit.jupiter:junit-jupiter:5.11.1',
             'org.slf4j:slf4j-simple:2.0.16',
             "io.rest-assured:rest-assured:$restAssuredVersion",
             "io.rest-assured:json-schema-validator:$restAssuredVersion",
             "io.qameta.allure:allure-rest-assured:$allureVersion",
             'org.assertj:assertj-core:3.26.3',
             "com.codeborne:selenide:$selenideVersion",
-            'io.qameta.allure:allure-selenide:2.19.0'
-    )
+            'io.qameta.allure:allure-selenide:2.19.0')
 }
 
 tasks.withType(Test).configureEach {

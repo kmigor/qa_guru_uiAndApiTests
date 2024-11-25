@@ -15,7 +15,6 @@ public class BookStoreApi {
 
     public static void deleteAllBooksInCart() {
 
-
         step("Запрос удаления книг из корзины", () -> {
             given(demoQaBookStoreWithJsonRequest)
                     .header("Authorization", "Bearer " + cookies.getToken())
@@ -48,5 +47,4 @@ public class BookStoreApi {
                     .statusCode(201);
         });
     }
-
 }

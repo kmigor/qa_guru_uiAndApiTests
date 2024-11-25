@@ -22,21 +22,12 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.browser = System.getProperty("browserName", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "122.0");
-
-        System.out.println("Проверка");
-        System.out.println(System.getProperty("remoteUser"));
-        System.out.println(Configuration.remote);
-        System.out.println("Проверка окончена");
-
         Configuration.pageLoadStrategy = "eager";
         RestAssured.baseURI = "https://demoqa.com";
         Configuration.baseUrl = "https://demoqa.com";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of("enableVNC", true, "enableVideo", true));
         Configuration.browserCapabilities = capabilities;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
@@ -49,5 +40,4 @@ public class TestBase {
         Attach.addVideo();
         Selenide.closeWebDriver();
     }
-
 }

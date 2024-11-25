@@ -13,7 +13,6 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 
 public class LoginExtension implements BeforeEachCallback {
-
     public static LoginResponseModel cookies;
 
     @Override
@@ -33,7 +32,5 @@ public class LoginExtension implements BeforeEachCallback {
                     $("#userName-value").shouldHave(text(System.getProperty("bookStoreLogin", "MaxKon")));
                 }
         );
-
     }
-
 }

@@ -24,5 +24,4 @@ public class DemoQaBookStoreSpecifications {
     public static RequestSpecification demoQaBookStoreCommonRequest = with()
             .filter(withCustomTemplates())
             .log().all();
-
 }

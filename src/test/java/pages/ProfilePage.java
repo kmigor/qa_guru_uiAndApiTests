@@ -18,5 +18,4 @@ public class ProfilePage {
     public static void checkThatTheBookDeletedUI() {
         $("#see-book-Learning JavaScript Design Patterns").shouldNotBe(visible);
     }
-
 }

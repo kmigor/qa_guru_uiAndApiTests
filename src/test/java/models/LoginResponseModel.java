@@ -1,11 +1,9 @@
 package models;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 public class LoginResponseModel {
-
     String userId;
     String username;
     String password;
@@ -13,5 +11,4 @@ public class LoginResponseModel {
     String expires;
     String created_date;
     Boolean isActive;
-
 }
