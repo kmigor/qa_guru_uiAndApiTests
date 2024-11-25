@@ -18,17 +18,22 @@ public class TestBase {
     public static void setUp() {
         if ("true".equals(System.getProperty("remote"))) {
             Configuration.remote = "https://" + System.getProperty("remoteUser") + "@" + System.getProperty("remoteUrl");
-        }
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.browser = System.getProperty("browserName", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "122.0");
+            Configuration.browser = System.getProperty("browserName");
+            Configuration.browserVersion = System.getProperty("browserVersion");
+            Configuration.browserSize = System.getProperty("browserSize");
 
-        System.out.println("Проверка");
-        System.out.println(Configuration.remote);
-        System.out.println(Configuration.browser);
-        System.out.println(Configuration.pageLoadStrategy);
-        System.out.println("Конец проверки");
+        } else {
+            Configuration.browser = "chrome";
+            Configuration.browserSize = "1920x1080";
+        }
+
+//        if ("true".equals(System.getProperty("remote"))) {
+//            Configuration.remote = "https://" + System.getProperty("remoteUser") + "@" + System.getProperty("remoteUrl");
+//        }
+        Configuration.pageLoadStrategy = "eager";
+//        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+//        Configuration.browser = System.getProperty("browserName", "chrome");
+//        Configuration.browserVersion = System.getProperty("browserVersion", "122.0");
 
         RestAssured.baseURI = "https://demoqa.com";
         Configuration.baseUrl = "https://demoqa.com";
