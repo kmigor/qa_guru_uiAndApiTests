@@ -27,7 +27,7 @@ public class TestBase {
         System.out.println("Проверка");
         System.out.println(Configuration.remote);
         System.out.println(Configuration.browser);
-        System.out.println("Configuration.pageLoadStrategy");
+        System.out.println(Configuration.pageLoadStrategy);
         System.out.println("Конец проверки");
 
         RestAssured.baseURI = "https://demoqa.com";
