@@ -16,9 +16,10 @@ public class TestBase {
 
     @BeforeAll
     public static void setUp() {
-        if ("true".equals(System.getProperty("remote"))) {
-            Configuration.remote = "https://" + System.getProperty("login") + "@" + System.getProperty("remoteUrl");
-        }
+//        if ("true".equals(System.getProperty("remote"))) {
+//            Configuration.remote = "https://" + System.getProperty("login") + "@" + System.getProperty("remoteUrl");
+//        }
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.browser = System.getProperty("browserName", "chrome");
