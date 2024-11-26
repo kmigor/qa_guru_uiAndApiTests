@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class IsbnModel {
-    String isbn;
+    private String isbn;
 }

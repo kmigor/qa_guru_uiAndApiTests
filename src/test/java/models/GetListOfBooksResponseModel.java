@@ -6,7 +6,7 @@ import java.util.List;
 
 @Data
 public class GetListOfBooksResponseModel {
-    String userId;
-    String username;
-    List<BookModel> books;
+    private String userId;
+    private String username;
+    private List<BookModel> books;
 }

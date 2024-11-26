@@ -8,6 +8,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class AddListOfBooksRequestModel {
-    String userId;
-    List<IsbnModel> collectionOfIsbns;
+    private String userId;
+    private List<IsbnModel> collectionOfIsbns;
 }

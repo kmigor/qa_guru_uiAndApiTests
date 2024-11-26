@@ -16,6 +16,6 @@ public class ProfilePage {
     }
 
     public static void checkThatTheBookDeletedUI() {
-        $("#see-book-Learning JavaScript Design Patterns").shouldNotBe(visible);
+        $("#see-book-Designing Evolvable Web APIs with ASP.NET").shouldNotBe(visible);
     }
 }
