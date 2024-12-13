@@ -1,12 +1,11 @@
 package tests;
 
 import api.AccountApi;
-import api.BookStoreApi;
+import helpers.WebSteps;
 import helpers.extensions.WithLogin;
 import models.GetListOfBooksResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.ProfilePage;
 
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,23 +16,18 @@ public class DemoQaBookStoreTests extends TestBase {
     @WithLogin
     @DisplayName("Проверка успешного удаления товара из списка")
     void successfulDeleteBookTest() {
+        WebSteps steps = new WebSteps();
 
-        step("Очистить корзину с книгами", BookStoreApi::deleteAllBooksInCart);
-
-        step("Добавить определенную книгу в корзину", () -> BookStoreApi.addBookToList("9781449337711"));
-
-        step("Удалить книгу", () -> {
-            ProfilePage.openPage();
-            ProfilePage.deleteCertainBook();
-        });
-
-        step("Проверить, что книга удалена, через UI", () -> {
-            ProfilePage.openPage();
-            ProfilePage.checkThatTheBookDeletedUI();
-        });
+        steps.deleteBooks();
+        steps.addBook("9781449337711");
+        steps.openPageWithLogin();
+        steps.checkThatBookIsAdded();
+        steps.deleteBook();
+        steps.checkThatBookIsDeleted();
 
         step("Получить список книг в корзине, и проверить, что книга удалена, через API", () -> {
-            GetListOfBooksResponseModel response = AccountApi.getListOfBooks();
+            AccountApi accountApi = new AccountApi();
+            GetListOfBooksResponseModel response = accountApi.getListOfBooks();
             assertThat(response.getBooks()).isEmpty();
         });
     }
